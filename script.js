@@ -410,11 +410,11 @@ filterBtns.forEach(btn => {
 
 });
 
-/* ─── EMAILJS INIT (SAFE + CORRECT) ─── */
+/* ─── EMAILJS INIT ─── */
 (function () {
   document.addEventListener("DOMContentLoaded", () => {
     if (typeof emailjs !== "undefined") {
-      emailjs.init("QLusooCQLaY_tbI9D"); // correct v4 style
+      emailjs.init("QLusooCQLaY_tbI9D");
       console.log("EmailJS initialized successfully");
     } else {
       console.error("EmailJS SDK not loaded");
@@ -434,6 +434,7 @@ async function handleContactSubmit(btn) {
 
   const name = document.getElementById("contactName")?.value.trim();
   const email = document.getElementById("contactEmail")?.value.trim();
+
   const serviceSelect = document.getElementById("contactService");
   const service = serviceSelect?.options[serviceSelect.selectedIndex]?.text || "";
 
@@ -458,54 +459,42 @@ async function handleContactSubmit(btn) {
   }
 
   btn.disabled = true;
-  btn.textContent = "⏳ TRANSMITTING...";
+  btn.textContent = "⏳ SENDING...";
 
-  /* DEBUG (optional but useful) */
-  console.log("Sending data:", {
-    name,
-    email,
-    service,
-    projectName,
-    startDate,
-    endDate,
-    durationSummary,
-    message
-  });
+  const templateParams = {
+    contactName: name,
+    contactEmail: email,
+    contactService: service,
+    contactProjectName: projectName,
+    startDate: startDate,
+    endDate: endDate,
+    durationSummary: durationSummary,
+    contactMsg: message
+  };
+
+  console.log("Sending data:", templateParams);
 
   try {
 
-    /* ─── OWNER EMAIL ─── */
-    await emailjs.send(
+    /* ─── SEND OWNER EMAIL ─── */
+    const ownerResult = await emailjs.send(
       "service_d7yl2oi",
       "template_iy537ld",
-      {
-        contactName: name,
-        contactEmail: email,
-        contactService: service,
-        contactProjectName: projectName,
-        startDate: startDate,
-        endDate: endDate,
-        durationSummary: durationSummary,
-        contactMsg: message
-      }
+      templateParams
     );
 
-    /* ─── AUTO REPLY EMAIL ─── */
-    await emailjs.send(
+    console.log("Owner email sent:", ownerResult.status, ownerResult.text);
+
+    /* ─── SEND AUTO-REPLY EMAIL ─── */
+    const replyResult = await emailjs.send(
       "service_d7yl2oi",
       "template_a6q01gc",
-      {
-        contactName: name,
-        contactEmail: email,
-        contactService: service,
-        contactProjectName: projectName,
-        startDate: startDate,
-        endDate: endDate,
-        durationSummary: durationSummary,
-        contactMsg: message
-      }
+      templateParams
     );
 
+    console.log("Auto-reply sent:", replyResult.status, replyResult.text);
+
+    /* ─── SUCCESS UI ─── */
     btn.textContent = "✓ MESSAGE SENT SUCCESSFULLY";
 
     /* ─── RESET FORM ─── */
@@ -532,10 +521,10 @@ async function handleContactSubmit(btn) {
 
     console.error("EmailJS Error:", error);
 
-    const reason = error?.text || error?.message || "Unknown error";
-
     btn.textContent = "❌ FAILED TO SEND";
-    btn.title = reason;
+
+    // IMPORTANT: EmailJS real error message
+    btn.title = error?.text || error?.message || "Unknown error";
 
     setTimeout(() => {
       btn.textContent = "⚡ TRANSMIT MESSAGE";
@@ -544,7 +533,6 @@ async function handleContactSubmit(btn) {
     }, 3000);
   }
 }
-
 /* ─── DURATION CALENDAR ─── */
 (function() {
   const startInput = document.getElementById('startDate');
