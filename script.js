@@ -476,62 +476,74 @@ async function handleContactSubmit(btn) {
 
   try {
 
-    /* ─── SEND OWNER EMAIL ─── */
+    /* ─── SEND OWNER EMAIL (critical — must succeed) ─── */
     const ownerResult = await emailjs.send(
       "service_d7yl2oi",
       "template_iy537ld",
       templateParams
     );
-
     console.log("Owner email sent:", ownerResult.status, ownerResult.text);
-
-    /* ─── SEND AUTO-REPLY EMAIL ─── */
-    const replyResult = await emailjs.send(
-      "service_d7yl2oi",
-      "template_a6q01gc",
-      templateParams
-    );
-
-    console.log("Auto-reply sent:", replyResult.status, replyResult.text);
-
-    /* ─── SUCCESS UI ─── */
-    btn.textContent = "✓ MESSAGE SENT SUCCESSFULLY";
-
-    /* ─── RESET FORM ─── */
-    document.getElementById("contactName").value = "";
-    document.getElementById("contactEmail").value = "";
-    document.getElementById("contactService").selectedIndex = 0;
-    document.getElementById("contactProjectName").value = "";
-    document.getElementById("contactMsg").value = "";
-    document.getElementById("startDate").value = "";
-    document.getElementById("endDate").value = "";
-
-    const durationEl = document.getElementById("durationSummary");
-    if (durationEl) {
-      durationEl.textContent = "";
-      durationEl.style.display = "none";
-    }
-
-    setTimeout(() => {
-      btn.textContent = "⚡ TRANSMIT MESSAGE";
-      btn.disabled = false;
-    }, 3000);
 
   } catch (error) {
 
-    console.error("EmailJS Error:", error);
-
+    /* Owner email failed — show error and stop */
+    console.error("Owner email failed:", error);
     btn.textContent = "❌ FAILED TO SEND";
-
-    // IMPORTANT: EmailJS real error message
     btn.title = error?.text || error?.message || "Unknown error";
-
     setTimeout(() => {
       btn.textContent = "⚡ TRANSMIT MESSAGE";
       btn.title = "";
       btn.disabled = false;
     }, 3000);
+    return;
+
   }
+
+  /* ─── SEND AUTO-REPLY TO APPLICANT ─── */
+  try {
+    await emailjs.send(
+      "service_d7yl2oi",
+      "template_a6q01gc",
+      {
+        to_email:            email,   // REQUIRED: tells EmailJS where to send
+        to_name:             name,
+        contactName:         name,
+        contactEmail:        email,
+        contactService:      templateParams.contactService,
+        contactProjectName:  templateParams.contactProjectName,
+        startDate:           templateParams.startDate,
+        endDate:             templateParams.endDate,
+        durationSummary:     templateParams.durationSummary,
+        contactMsg:          templateParams.contactMsg
+      }
+    );
+    console.log("Auto-reply sent to:", email);
+  } catch (err) {
+    console.warn("Auto-reply failed (non-critical):", err);
+  }
+
+  /* ─── SUCCESS UI ─── */
+  btn.textContent = "✓ MESSAGE SENT SUCCESSFULLY";
+
+  /* ─── RESET FORM ─── */
+  document.getElementById("contactName").value = "";
+  document.getElementById("contactEmail").value = "";
+  document.getElementById("contactService").selectedIndex = 0;
+  document.getElementById("contactProjectName").value = "";
+  document.getElementById("contactMsg").value = "";
+  document.getElementById("startDate").value = "";
+  document.getElementById("endDate").value = "";
+
+  const durationEl = document.getElementById("durationSummary");
+  if (durationEl) {
+    durationEl.textContent = "";
+    durationEl.style.display = "none";
+  }
+
+  setTimeout(() => {
+    btn.textContent = "⚡ TRANSMIT MESSAGE";
+    btn.disabled = false;
+  }, 3000);
 }
 /* ─── DURATION CALENDAR ─── */
 (function() {
