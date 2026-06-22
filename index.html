@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Muguntharajan K — Software Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fraunces:opsz,wght@9..144,400..900&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="styles.css">
+<script src="script.js" defer></script>
+</head>
+<body>
+<canvas id="bg-canvas"></canvas>
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="loader-content">
+    <div class="logo-box">
+      <img src="img/MK.jpg" alt="Logo">
+    </div>
+  </div>
+</div>
+
+<!-- SCROLL PROGRESS -->
+<div id="scrollProgress"></div>
+
+<!-- NAV -->
+<nav id="mainNav" class="nav-reference">
+  <a href="#hero" class="nav-brand">mugunth<span class="nav-brand-dot">.dev</span></a>
+  <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#hero" class="nav-link-item active">Home</a></li>
+    <li><a href="#about" class="nav-link-item">About</a></li>
+    <li><a href="#skills" class="nav-link-item">Skills</a></li>
+    <li><a href="#projects" class="nav-link-item">Projects</a></li>
+    <li><a href="#services" class="nav-link-item">Services</a></li>
+    <li><a href="#contact" class="nav-link-item">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="https://linkedin.com/in/muguntharajan-k" target="_blank" class="nav-li-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="Muguntharajan_SE_Resume.pdf" download class="btn-resume"><i class="fa-solid fa-download"></i> RESUME</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme"></button>
+  </div>
+</nav>
+
+<div class="wrapper">
+
+<!-- HERO -->
+<section class="hero" id="hero">
+
+  <!-- Center content -->
+  <div class="hero-center reveal">
+    <h1 class="hero-big-title">
+      <span class="hbt-line">Creative</span>
+      <span class="hbt-line hbt-accent">Software Developer</span>
+      <span class="hbt-line">&amp; ML Engineer</span>
+    </h1>
+    <p class="hero-big-sub">Crafting intelligent solutions through clean code,<br>thoughtful design, and machine learning innovation.</p>
+    <!-- Left social dock -->
+  <div class="hero-side-socials">
+    <a href="https://github.com/muguntharajank" target="_blank" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+    <a href="https://linkedin.com/in/muguntharajan-k" target="_blank" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+    <a href="https://instagram.com/m.s.d_mugunth" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="https://twitter.com/muguntharajan_k" target="_blank" aria-label="X (Twitter)"><i class="fa-brands fa-x-twitter"></i></a>
+    <a href="https://t.me/@MuguntharajanK" target="_blank" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+    <span class="side-socials-line"></span>
+  </div>
+    <a href="#projects" class="btn-view-work">VIEW WORK</a>
+    <div class="hero-scroll-indicator">
+      <i class="fa-solid fa-arrow-down"></i>
+    </div>
+  </div>
+
+  <!-- Right rotating badge -->
+  <div class="hero-badge-wrap">
+    <svg class="hero-rotate-badge" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <path id="circlePath" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0"/>
+      </defs>
+      <text class="badge-text">
+        <textPath href="#circlePath" startOffset="0%">
+          • CREATIVE DEVELOPER • ML ENGINEER • WEB DEVELOPER •
+        </textPath>
+      </text>
+    </svg>
+    <div class="hero-badge-dot"></div>
+  </div>
+
+</section>
+
+<!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="about-box">
+      <div class="section-header reveal">
+        <h2>About Me</h2>
+        <p>Get to know me better</p>
+      </div>
+      <div class="about-content">
+        <div class="about-img-col reveal-left">
+          <div class="about-img-outer">
+            <div class="about-img-bg-box"></div>
+            <div class="about-img-wrap">
+              <span class="glow-cyan"></span>
+              <span class="glow-purple"></span>
+              <img src="img/profile.png" class="about-img">
+            </div>
+          </div>
+          <div class="about-btn-row">
+            <a href="Muguntharajan_SE_Resume.pdf" download class="about-btn about-btn--resume"><i class="fas fa-download"></i> Resume</a>
+            <a href="#contact" class="about-btn about-btn--hire"><i class="fas fa-envelope"></i> Hire Me</a>
+          </div>
+        </div>
+
+        <div class="about-text reveal">
+          <h4 class="about-subtitle">Hi, I'm Muguntharajan K</h4>
+          <h4 class="about-title">Software Developer & ML Engineer</h4>
+          <p>Passionate Information Technology student and aspiring Software Developer with strong interest in Artificial Intelligence, Machine Learning, Web Development, and UI/UX Design. I enjoy building modern digital solutions, creating responsive websites, and solving real-world problems through technology. Skilled in Python, Java, HTML, CSS, and JavaScript, I continuously explore new technologies and improve my development skills. Along with software development, I also have experience in UI/UX design and video editing, combining creativity with technical innovation.</p>
+          <!-- STAT BOXES -->
+          <div class="about-stats reveal">
+            <div class="astat-box glass">
+              <i class="fa-solid fa-briefcase astat-icon"></i>
+              <div class="astat-num">2+</div>
+              <div class="astat-label">Years Experience</div>
+            </div>
+            <div class="astat-box glass">
+              <i class="fa-solid fa-rocket astat-icon"></i>
+              <div class="astat-num">15+</div>
+              <div class="astat-label">Projects Delivered</div>
+            </div>
+            <div class="astat-box glass">
+              <i class="fa-solid fa-users astat-icon"></i>
+              <div class="astat-num">10+</div>
+              <div class="astat-label">Happy Clients</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</section>
+<!-- EXPERIENCE -->
+<section id="experience" style="padding:100px 40px;max-width:1200px;margin:0 auto">
+  <div class="section-header reveal">
+    <h2 class="section-title">Experience</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item slide-in-left">
+      <div class="tl-icon" style="--tl-ic:var(--c1)"><i class="fa-solid fa-brain"></i></div>
+      <div class="glass tl-card">
+        <div class="tl-header">
+          <div class="tl-role">Artificial Intelligence and Machine Learning Intern</div>
+          <div class="tl-date">June 2026 — July 2026</div>
+        </div>
+        <div class="tl-company">TVK Technologies · Chennai</div>
+        <ul class="tl-bullets">
+          <li>Developed and deployed machine learning models for real-world problem solving</li>
+          <li>Worked with data preprocessing, feature engineering, and model evaluation pipelines</li>
+          <li>Collaborated on AI-driven solutions using Python and industry-standard ML libraries</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item slide-in-left">
+      <div class="tl-icon" style="--tl-ic:var(--c1)"><i class="fa-solid fa-robot"></i></div>
+      <div class="glass tl-card">
+        <div class="tl-header">
+          <div class="tl-role">Machine Learning Intern</div>
+          <div class="tl-date">October 2025 — November 2025</div>
+        </div>
+        <div class="tl-company">EVOASTRA VENTURES PVT. LTD. · India</div>
+        <ul class="tl-bullets">
+          <li>Built and optimised ML models for classification and prediction tasks</li>
+          <li>Applied deep learning techniques including neural network architectures</li>
+          <li>Gained hands-on experience with data analysis, model training, and deployment workflows</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item slide-in-left">
+      <div class="tl-icon" style="--tl-ic:var(--c1)"><i class="fa-brands fa-python"></i></div>
+      <div class="glass tl-card">
+        <div class="tl-header">
+          <div class="tl-role">Python Developer Intern</div>
+          <div class="tl-date">July 2025 — August 2025</div>
+        </div>
+        <div class="tl-company">CODEC TECHNOLOGIES · India</div>
+        <ul class="tl-bullets">
+          <li>Developed Python-based applications and automation scripts for internal use</li>
+          <li>Contributed to backend development and API integration projects</li>
+          <li>Worked in an Agile team environment, improving code quality and development speed</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="padding:100px 40px;max-width:1200px;margin:0 auto">
+  <div class="section-header reveal">
+    <h2 class="section-title">Education</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item slide-in-left">
+      <div class="tl-icon" style="--tl-ic:var(--c1)"><i class="fa-solid fa-graduation-cap"></i></div>
+      <div class="glass tl-card">
+        <div class="tl-header">
+          <div class="tl-role">Bachelor of Technology — Information Technology</div>
+          <div class="tl-date">2023 — 2027</div>
+        </div>
+        <div class="tl-company">UNIVERSITY COLLEGE OF ENGINEERING, TINDIVANAM</div>
+        <ul class="tl-bullets">
+          <li>Specialising in Engineering , Technology and Software Development</li>
+          <li> percentage : 83%</li>  
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item slide-in-left">
+      <div class="tl-icon" style="--tl-ic:var(--c1)"><i class="fa-solid fa-school"></i></div>
+      <div class="glass tl-card">
+        <div class="tl-header">
+          <div class="tl-role">Higher Secondary Education (Class XII)</div>
+          <div class="tl-date">2021 — 2023</div>
+        </div>
+        <div class="tl-company">GOVERNMENT HIGHER SECONDARY SCHOOL, C. MUTLUR</div>
+        <ul class="tl-bullets">
+          <li>Group : Computer Science</li>
+          <li>Percentage: 84.5%</li>
+        </ul>
+      </div>
+    </div>
+    <div class="tl-item slide-in-left">
+      <div class="tl-icon" style="--tl-ic:var(--c1)"><i class="fa-solid fa-book-open"></i></div>
+      <div class="glass tl-card">
+        <div class="tl-header">
+          <div class="tl-role">Secondary School Education (Class X)</div>
+          <div class="tl-date">2020 — 2021</div>
+        </div>
+        <div class="tl-company">GOVERNMENT HIGHER SECONDARY SCHOOL, C. MUTLUR</div>
+        <ul class="tl-bullets">
+          <li>Group : Mathematics - Science</li>
+          <li>Percentage: 100%</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="padding:100px 40px;max-width:1200px;margin:0 auto">
+  <div class="section-header reveal">
+    <h2 class="section-title">Skills</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-orbit-wrapper">
+    <div class="skills-orbit reveal" id="skillsOrbit">
+      <div class="orbit-track" style="width:420px;height:420px"></div>
+      <div class="orbit-track" style="width:230px;height:230px"></div>
+      <div class="orbit-center">CORE<br>STACK</div>
+    </div>
+  </div>
+  <div class="skills-bars slide-in-up" id="skillBars">
+    <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Python / ML</span><span class="skill-bar-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-pct="90"></div></div></div>
+    <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">HTML / CSS</span><span class="skill-bar-pct">88%</span></div><div class="skill-track"><div class="skill-fill" data-pct="88"></div></div></div>
+    <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">JavaScript</span><span class="skill-bar-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-pct="80"></div></div></div>
+    <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">Java / C / C++</span><span class="skill-bar-pct">78%</span></div><div class="skill-track"><div class="skill-fill" data-pct="78"></div></div></div>
+    <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">UI/UX Design</span><span class="skill-bar-pct">82%</span></div><div class="skill-track"><div class="skill-fill" data-pct="82"></div></div></div>
+    <div class="skill-bar-item"><div class="skill-bar-header"><span class="skill-bar-name">AI / Deep Learning</span><span class="skill-bar-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-pct="85"></div></div></div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" class="section">
+  <div class="section-header reveal">
+    <h2 class="section-title">Certifications</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="cert-grid">
+
+    <!-- Cert 1 -->
+<div class="cert-card glass slide-in-up" style="transition-delay:.00s">
+  <div class="cert-badge" style="--cc:var(--c2)">
+    <i class="fa-solid fa-robot"></i>
+  </div>
+  <div class="cert-body">
+    <h3 class="cert-title">Artificial Intelligence & Machine Learning</h3>
+    <span class="cert-issuer">Infosys Springboard</span>
+    <span class="cert-date">2025</span>
+  </div>
+  <div class="cert-ribbon" style="--cc:var(--c2)"></div>
+</div>
+
+<!-- Cert 2 -->
+<div class="cert-card glass slide-in-up" style="transition-delay:.08s">
+  <div class="cert-badge" style="--cc:var(--c4)">
+    <i class="fa-solid fa-brain"></i>
+  </div>
+  <div class="cert-body">
+    <h3 class="cert-title">Deep Learning</h3>
+    <span class="cert-issuer">Infosys Springboard</span>
+    <span class="cert-date">2025</span>
+  </div>
+  <div class="cert-ribbon" style="--cc:var(--c4)"></div>
+</div>
+
+<!-- Cert 3 -->
+<div class="cert-card glass slide-in-up" style="transition-delay:.16s">
+  <div class="cert-badge" style="--cc:var(--c3)">
+    <i class="fa-solid fa-chart-line"></i>
+  </div>
+  <div class="cert-body">
+    <h3 class="cert-title">Data Science Fundamentals</h3>
+    <span class="cert-issuer">IBM SkillsBuild</span>
+    <span class="cert-date">2025</span>
+  </div>
+  <div class="cert-ribbon" style="--cc:var(--c3)"></div>
+</div>
+
+<!-- Cert 4 -->
+<div class="cert-card glass slide-in-up" style="transition-delay:.24s">
+  <div class="cert-badge" style="--cc:var(--c4)">
+    <i class="fa-solid fa-chart-pie"></i>
+  </div>
+  <div class="cert-body">
+    <h3 class="cert-title">Data Analytics</h3>
+    <span class="cert-issuer">Unstop</span>
+    <span class="cert-date">2025</span>
+  </div>
+  <div class="cert-ribbon" style="--cc:var(--c4)"></div>
+</div>
+
+<!-- Cert 5 -->
+<div class="cert-card glass slide-in-up" style="transition-delay:.32s">
+  <div class="cert-badge" style="--cc:var(--c1)">
+    <i class="fa-brands fa-python"></i>
+  </div>
+  <div class="cert-body">
+    <h3 class="cert-title">Python Programming</h3>
+    <span class="cert-issuer">Infosys Springboard</span>
+    <span class="cert-date">2025</span>
+  </div>
+  <div class="cert-ribbon" style="--cc:var(--c1)"></div>
+</div>
+
+<!-- Cert 6 -->
+<div class="cert-card glass slide-in-up" style="transition-delay:.40s">
+  <div class="cert-badge" style="--cc:var(--c1)">
+    <i class="fa-solid fa-database"></i>
+  </div>
+  <div class="cert-body">
+    <h3 class="cert-title">SQL & Database Management</h3>
+    <span class="cert-issuer">HackerRank</span>
+    <span class="cert-date">2025</span>
+  </div>
+  <div class="cert-ribbon" style="--cc:var(--c1)"></div>
+</div>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+
+    <div class="section-header reveal">
+        <h2 class="section-title">Projects</h2>
+        <div class="section-line"></div>
+    </div>
+
+    <!-- FILTER BUTTONS -->
+    <div class="project-filters reveal">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="ml">Machine Learning</button>
+        <button class="filter-btn" data-filter="web">Web Development</button>
+        <button class="filter-btn" data-filter="data">Data Analysis</button>
+        <button class="filter-btn" data-filter="app">Other</button>
+    </div>
+
+    <div class="projects-grid">
+
+        <!-- PROJECT 1 -->
+        <div class="glass project-card slide-in-up" data-category="ml">
+            <div class="project-thumb">
+                <img src="img/project_3.jpg" alt="Gesture Analysis System">
+            </div>
+            <div class="project-body">
+                <div class="project-name">Gesture Analysis System</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">Python</span>
+                    <span class="stack-chip">OpenCV</span>
+                    <span class="stack-chip">Machine Learning</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/muguntharajank" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="glass project-card slide-in-up" data-category="ml">
+            <div class="project-thumb">
+                <img src="img/project_4.jpg" alt="Emotional Detection System">
+            </div>
+            <div class="project-body">
+                <div class="project-name">Emotional Detection System</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">Python</span>
+                    <span class="stack-chip">OpenCV</span>
+                    <span class="stack-chip">Deep Learning</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/muguntharajank" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="glass project-card slide-in-up" data-category="ml">
+            <div class="project-thumb">
+                <img src="img/project_6.jpg" alt="Garbage Detection System">
+            </div>
+            <div class="project-body">
+                <div class="project-name">Garbage Detection System</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">Python</span>
+                    <span class="stack-chip">Scikit-learn</span>
+                    <span class="stack-chip">ML</span>
+                    <span class="stack-chip">+1</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/muguntharajank" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 4 -->
+        <div class="glass project-card slide-in-up" data-category="ml">
+            <div class="project-thumb">
+                <img src="img/project_7.jpg" alt="Chatbot Application">
+            </div>
+            <div class="project-body">
+                <div class="project-name">Chatbot Application</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">Python</span>
+                    <span class="stack-chip">NLP</span>
+                    <span class="stack-chip">Machine Learning</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/muguntharajank" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 5 -->
+        <div class="glass project-card slide-in-up" data-category="ml">
+            <div class="project-thumb">
+                <img src="img/project_8.jpg" alt="Autonomous Driving System">
+            </div>
+            <div class="project-body">
+                <div class="project-name">Autonomous Driving System</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">Python</span>
+                    <span class="stack-chip">Deep Learning</span>
+                    <span class="stack-chip">+2</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/muguntharajank" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 6 -->
+        <div class="glass project-card slide-in-up" data-category="web">
+            <div class="project-thumb">
+                <img src="img/project_9.jpg" alt="E-Learning Platform">
+            </div>
+            <div class="project-body">
+                <div class="project-name">E-Learning Platform</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">Python</span>
+                    <span class="stack-chip">Django</span>
+                    <span class="stack-chip">MySQL</span>
+                    <span class="stack-chip">+3</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/muguntharajank" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 7 -->
+        <div class="glass project-card slide-in-up" data-category="web">
+            <div class="project-thumb">
+                <img src="img/project_1.png" alt="Exam Registration System">
+            </div>
+            <div class="project-body">
+                <div class="project-name">Exam Registration System</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">Python</span>
+                    <span class="stack-chip">Django</span>
+                    <span class="stack-chip">MySQL</span>
+                    <span class="stack-chip">+3</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/muguntharajank" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 8 -->
+        <div class="glass project-card slide-in-up" data-category="data">
+            <div class="project-thumb">
+                <img src="img/project_5.jpg" alt="Dhoni Statistics Analysis">
+            </div>
+            <div class="project-body">
+                <div class="project-name">Dhoni Statistics Analysis</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">Python</span>
+                    <span class="stack-chip">Pandas</span>
+                    <span class="stack-chip">Matplotlib</span>
+                    <span class="stack-chip">+1</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/muguntharajank" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 9 -->
+        <div class="glass project-card slide-in-up" data-category="app">
+            <div class="project-thumb">
+                <img src="img/project_2.jpg" alt="Cricket Score App">
+            </div>
+            <div class="project-body">
+                <div class="project-name">Cricket Score App</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">Java</span>
+                    <span class="stack-chip">Java Swing</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/muguntharajank" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 10 -->
+        <div class="glass project-card slide-in-up" data-category="data">
+            <div class="project-thumb">
+                <img src="img/project_10.jpg" alt="Weather Analysis System">
+            </div>
+            <div class="project-body">
+                <div class="project-name">Weather Analysis System</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">Python</span>
+                    <span class="stack-chip">Power BI</span>
+                    <span class="stack-chip">Analytic Tools</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/muguntharajank" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 11 -->
+        <div class="glass project-card slide-in-up" data-category="app">
+            <div class="project-thumb">
+                <img src="img/project_11.jpg" alt="BMI Calculator App">
+            </div>
+            <div class="project-body">
+                <div class="project-name">BMI Calculator App</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">Android Studio</span>
+                    <span class="stack-chip">Mobile App Dev</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/muguntharajank" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PROJECT 12 -->
+        <div class="glass project-card slide-in-up" data-category="web">
+            <div class="project-thumb">
+                <img src="img/project_12.jpg" alt="Portfolio Website">
+            </div>
+            <div class="project-body">
+                <div class="project-name">Personal Portfolio Website</div>
+                <div class="stack-chips">
+                    <span class="stack-chip">HTML</span>
+                    <span class="stack-chip">CSS</span>
+                    <span class="stack-chip">JavaScript</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://muguntharajank.netlify.app/" target="_blank" class="proj-btn proj-btn--gh">
+                        <i class="fa-brands fa-github"></i> GitHub
+                    </a>
+                    <a href="https://muguntharajank.netlify.app/" target="_blank" class="proj-btn proj-btn--live">
+                        <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+<!-- SERVICES -->
+<section id="services" class="section">
+  <div class="section-header reveal">
+    <h2 class="section-title">Services</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="svc2-grid">
+
+    <!-- Artificial Intelligence -->
+    <div class="svc2-card glass slide-in-up">
+      <div class="svc2-header">
+        <div class="svc2-icon-wrap" style="--ic:var(--c1)">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <h3 class="svc2-title">Artificial Intelligence</h3>
+      </div>
+      <div class="svc2-chips">
+        <span class="svc2-chip">Data Science</span>
+        <span class="svc2-chip">Data Analysis</span>
+        <span class="svc2-chip">Machine Learning</span>
+        <span class="svc2-chip">Deep Learning</span>
+        <span class="svc2-chip">Gen AI</span>
+        <span class="svc2-chip">NLP</span>
+        <span class="svc2-chip">TensorFlow</span>
+        <span class="svc2-chip">Prompting</span>
+      </div>
+    </div>
+
+    <!-- Web Dev -->
+    <div class="svc2-card glass slide-in-up" style="transition-delay:.08s">
+      <div class="svc2-header">
+        <div class="svc2-icon-wrap" style="--ic:var(--c2)">
+          <i class="fa-solid fa-code"></i>
+        </div>
+        <h3 class="svc2-title">Web Development</h3>
+      </div>
+      <div class="svc2-chips">
+        <span class="svc2-chip">HTML / CSS</span>
+        <span class="svc2-chip">JavaScript</span>
+        <span class="svc2-chip">React</span>
+        <span class="svc2-chip">Node.js</span>
+        <span class="svc2-chip">Django</span>
+        <span class="svc2-chip">Flask</span>
+        <span class="svc2-chip">REST APIs</span>
+        <span class="svc2-chip">MySQL</span>
+      </div>
+    </div>
+
+    <!-- Tools & Technologies -->
+    <div class="svc2-card glass slide-in-up" style="transition-delay:.16s">
+      <div class="svc2-header">
+        <div class="svc2-icon-wrap" style="--ic:var(--c3)">
+          <i class="fa-solid fa-tools"></i>
+        </div>
+        <h3 class="svc2-title">Tools & Technologies</h3>
+      </div>
+      <div class="svc2-chips">
+        <span class="svc2-chip">Figma</span>
+        <span class="svc2-chip">Canva</span>
+        <span class="svc2-chip">VS Code</span>
+        <span class="svc2-chip">Prototyping</span>
+        <span class="svc2-chip">Android Studio</span>
+        <span class="svc2-chip">Design Systems</span>
+        <span class="svc2-chip">Motion UI</span>
+      </div>
+    </div>
+
+    <!-- Software Dev -->
+    <div class="svc2-card glass slide-in-up" style="transition-delay:.24s">
+      <div class="svc2-header">
+        <div class="svc2-icon-wrap" style="--ic:var(--c4)">
+          <i class="fa-solid fa-laptop-code"></i>
+        </div>
+        <h3 class="svc2-title">Software Development</h3>
+      </div>
+      <div class="svc2-chips">
+        <span class="svc2-chip">Python</span>
+        <span class="svc2-chip">Java</span>
+        <span class="svc2-chip">C / C++</span>
+        <span class="svc2-chip">JavaScript</span>
+        <span class="svc2-chip">JavaFX</span>
+        <span class="svc2-chip">OOP</span>
+        <span class="svc2-chip">Swing</span>
+        <span class="svc2-chip">Git</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="padding:100px 40px;max-width:1200px;margin:0 auto">
+  <div class="section-header reveal">
+    <h2 class="section-title">Contact Me</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-grid glass" style="overflow:hidden">
+    <div class="contact-info open-channel">
+      <h3>Open Channel</h3>
+      <p>Whether you need AI solutions, a modern website, or a creative application, I'm ready to build it. Let's connect and make something great together.</p>
+      <div class="contact-methods">
+
+  <a href="mailto:muguntharajank@gmail.com" class="c-method">
+    <div class="c-method-icon">
+      <i class="fa-solid fa-envelope"></i>
+    </div>
+    <div>
+      <span class="c-method-label">Email</span>
+      <span class="c-method-val">muguntharajank@gmail.com</span>
+    </div>
+  </a>
+
+  <a href="https://t.me/@MuguntharajanK" class="c-method">
+    <div class="c-method-icon">
+      <i class="fa-brands fa-telegram"></i>
+    </div>
+    <div>
+      <span class="c-method-label">Telegram</span>
+      <span class="c-method-val">Muguntharajan K</span>
+    </div>
+  </a>
+
+  <a href="https://linkedin.com/in/muguntharajan-k" target="_blank" class="c-method">
+    <div class="c-method-icon">
+      <i class="fa-brands fa-linkedin-in"></i>
+    </div>
+    <div>
+      <span class="c-method-label">LinkedIn</span>
+      <span class="c-method-val">linkedin.com/in/muguntharajan-k</span>
+    </div>
+  </a>
+
+  <a href="https://github.com/muguntharajank" target="_blank" class="c-method">
+    <div class="c-method-icon">
+      <i class="fa-brands fa-github"></i>
+    </div>
+    <div>
+      <span class="c-method-label">GitHub</span>
+      <span class="c-method-val">github.com/muguntharajank</span>
+    </div>
+  </a>
+
+  <a href="https://instagram.com/m.s.d_mugunth" target="_blank" class="c-method">
+    <div class="c-method-icon">
+      <i class="fa-brands fa-instagram"></i>
+    </div>
+    <div>
+      <span class="c-method-label">Instagram</span>
+      <span class="c-method-val">@m.s.d_mugunth</span>
+    </div>
+  </a>
+
+  <a href="https://twitter.com/muguntharajan_k" target="_blank" class="c-method">
+    <div class="c-method-icon">
+      <i class="fa-brands fa-x-twitter"></i>
+    </div>
+    <div>
+      <span class="c-method-label">X (Twitter)</span>
+      <span class="c-method-val">@muguntharajan_k</span>
+    </div>
+  </a>
+  <a href="https://muguntharajank.netlify.app/" target="_blank" class="c-method">
+    <div class="c-method-icon">
+      <i class="fa-solid fa-globe"></i>
+    </div>
+    <div>
+      <span class="c-method-label">Website</span>
+      <span class="c-method-val">Muguntharajan K</span>
+    </div>
+  </a>
+</div>
+</div>
+    <div class="contact-form">
+      <div class="form-group">
+        <label class="form-label">Identifier</label>
+        <input type="text" id="contactName" class="form-input" placeholder="Your name">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Frequency</label>
+        <input type="email" id="contactEmail" class="form-input" placeholder="your@email.com">
+      </div>
+      <div class="form-group">
+        <label class="form-label">Service Required</label>
+        <select id="contactService" class="form-input form-select">
+          <option value="">Select a Service</option>
+          <option value="ml">Machine Learning Development</option>
+          <option value="web">Web Development</option>
+          <option value="uiux">UI / UX Design</option>
+          <option value="data">Data Analysis</option>
+          <option value="chatbot">AI Chatbot Development</option>
+          <option value="cv">Computer Vision Project</option>
+          <option value="portfolio">Portfolio Website</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Project Name</label>
+        <input type="text" id="contactProjectName" class="form-input" placeholder="Project name">
+      </div>
+      <!-- PROJECT DURATION -->
+<div class="form-group" id="durationGroup">
+  <label class="form-label">Project Duration</label>
+  <div class="duration-grid">
+    <div class="duration-field">
+      <input type="date" id="startDate" class="form-input date-input">
+    </div>
+    <div class="duration-arrow">→</div>
+    <div class="duration-field">
+      <input type="date" id="endDate" class="form-input date-input">
+    </div>
+  </div>
+  <div class="duration-summary" id="durationSummary"></div>
+</div>
+      <div class="form-group">
+        <label class="form-label">Transmission</label>
+        <textarea id="contactMsg" class="form-textarea" placeholder="Describe your mission..."></textarea>
+      </div>
+      <button class="form-submit" id="contactSubmit" onclick="handleContactSubmit(this)">⚡ TRANSMIT MESSAGE</button>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 <span>MUGUNTHARAJAN K</span> · Software Developer </p>
+</footer>
+
+</div><!-- /wrapper -->
+
+<!-- MOBILE BOTTOM NAV -->
+<nav class="mobile-bottom-nav" id="mobileBottomNav">
+  <a href="#hero" class="mbn-item active" data-section="hero">
+    <i class="fa-solid fa-house"></i>
+    <span>Home</span>
+  </a>
+  <a href="#about" class="mbn-item" data-section="about">
+    <i class="fa-solid fa-user"></i>
+    <span>About</span>
+  </a>
+  <a href="#skills" class="mbn-item" data-section="skills">
+    <i class="fa-solid fa-code"></i>
+    <span>Skills</span>
+  </a>
+  <a href="#projects" class="mbn-item" data-section="projects">
+    <i class="fa-solid fa-rocket"></i>
+    <span>Projects</span>
+  </a>
+  <a href="#services" class="mbn-item" data-section="services">
+    <i class="fa-solid fa-briefcase"></i>
+    <span>Services</span>
+  </a>
+  <a href="#contact" class="mbn-item" data-section="contact">
+    <i class="fa-solid fa-envelope"></i>
+    <span>Contact</span>
+  </a>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+</body>
+</html>
