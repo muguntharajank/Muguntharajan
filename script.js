@@ -410,24 +410,25 @@ filterBtns.forEach(btn => {
 
 });
 
-/* ─── CONTACT FORM ─── */
+/* ─── EMAILJS INIT (SAFE + CORRECT) ─── */
+(function () {
+  document.addEventListener("DOMContentLoaded", () => {
+    if (typeof emailjs !== "undefined") {
+      emailjs.init("QLusooCQLaY_tbI9D"); // correct v4 style
+      console.log("EmailJS initialized successfully");
+    } else {
+      console.error("EmailJS SDK not loaded");
+    }
+  });
+})();
 
-// Init EmailJS only after the SDK is guaranteed to be loaded
-document.addEventListener("DOMContentLoaded", () => {
-  if (typeof emailjs !== "undefined") {
-    emailjs.init({ publicKey: "QLusooCQLaY_tbI9D" });
-  } else {
-    console.error("EmailJS SDK not loaded. Check the <script> tag in your HTML.");
-  }
-});
 
 /* ─── CONTACT FORM SUBMIT ─── */
 async function handleContactSubmit(btn) {
 
-  // Guard: ensure EmailJS is available before trying to send
   if (typeof emailjs === "undefined") {
-    btn.textContent = "❌ EMAIL SERVICE UNAVAILABLE";
-    setTimeout(() => { btn.textContent = "⚡ TRANSMIT MESSAGE"; }, 3000);
+    btn.textContent = "❌ EMAIL SERVICE NOT LOADED";
+    setTimeout(() => btn.textContent = "⚡ TRANSMIT MESSAGE", 3000);
     return;
   }
 
@@ -436,46 +437,44 @@ async function handleContactSubmit(btn) {
   const serviceSelect = document.getElementById("contactService");
   const service = serviceSelect?.options[serviceSelect.selectedIndex]?.text || "";
 
-  const projectName =
-    document.getElementById("contactProjectName")?.value.trim() || "Not Specified";
-
-  const startDate =
-    document.getElementById("startDate")?.value || "Not Specified";
-
-  const endDate =
-    document.getElementById("endDate")?.value || "Not Specified";
-
-  const durationSummary =
-    document.getElementById("durationSummary")?.textContent?.trim() || "Not Specified";
-
-  const message =
-    document.getElementById("contactMsg")?.value.trim();
+  const projectName = document.getElementById("contactProjectName")?.value.trim() || "Not Specified";
+  const startDate = document.getElementById("startDate")?.value || "Not Specified";
+  const endDate = document.getElementById("endDate")?.value || "Not Specified";
+  const durationSummary = document.getElementById("durationSummary")?.textContent?.trim() || "Not Specified";
+  const message = document.getElementById("contactMsg")?.value.trim();
 
   /* ─── VALIDATION ─── */
-
   if (!name || !email || !message) {
     btn.textContent = "⚠ FILL REQUIRED FIELDS";
-    setTimeout(() => { btn.textContent = "⚡ TRANSMIT MESSAGE"; }, 2000);
+    setTimeout(() => btn.textContent = "⚡ TRANSMIT MESSAGE", 2000);
     return;
   }
 
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
   if (!emailRegex.test(email)) {
     btn.textContent = "⚠ INVALID EMAIL";
-    setTimeout(() => { btn.textContent = "⚡ TRANSMIT MESSAGE"; }, 2000);
+    setTimeout(() => btn.textContent = "⚡ TRANSMIT MESSAGE", 2000);
     return;
   }
 
   btn.disabled = true;
   btn.textContent = "⏳ TRANSMITTING...";
 
+  /* DEBUG (optional but useful) */
+  console.log("Sending data:", {
+    name,
+    email,
+    service,
+    projectName,
+    startDate,
+    endDate,
+    durationSummary,
+    message
+  });
+
   try {
 
-    /* ==========================
-       OWNER EMAIL
-    ========================== */
-
+    /* ─── OWNER EMAIL ─── */
     await emailjs.send(
       "service_d7yl2oi",
       "template_iy537ld",
@@ -491,12 +490,7 @@ async function handleContactSubmit(btn) {
       }
     );
 
-    /* ==========================
-       AUTO REPLY EMAIL
-       Note: In your EmailJS dashboard, template_a6q01gc's
-       "To Email" field must be set to {{contactEmail}}
-    ========================== */
-
+    /* ─── AUTO REPLY EMAIL ─── */
     await emailjs.send(
       "service_d7yl2oi",
       "template_a6q01gc",
@@ -512,10 +506,9 @@ async function handleContactSubmit(btn) {
       }
     );
 
-    btn.textContent = "✓ TRANSMISSION SENT";
+    btn.textContent = "✓ MESSAGE SENT SUCCESSFULLY";
 
     /* ─── RESET FORM ─── */
-
     document.getElementById("contactName").value = "";
     document.getElementById("contactEmail").value = "";
     document.getElementById("contactService").selectedIndex = 0;
@@ -526,7 +519,7 @@ async function handleContactSubmit(btn) {
 
     const durationEl = document.getElementById("durationSummary");
     if (durationEl) {
-      durationEl.innerHTML = "";
+      durationEl.textContent = "";
       durationEl.style.display = "none";
     }
 
@@ -537,13 +530,12 @@ async function handleContactSubmit(btn) {
 
   } catch (error) {
 
-    // Log the full error object — error.text has the EmailJS reason
     console.error("EmailJS Error:", error);
-    console.error("Error details:", error?.text || error?.message || JSON.stringify(error));
 
     const reason = error?.text || error?.message || "Unknown error";
-    btn.textContent = "❌ TRANSMISSION FAILED";
-    btn.title = reason; // Hover over button to see reason
+
+    btn.textContent = "❌ FAILED TO SEND";
+    btn.title = reason;
 
     setTimeout(() => {
       btn.textContent = "⚡ TRANSMIT MESSAGE";
