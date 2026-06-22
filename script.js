@@ -412,12 +412,24 @@ filterBtns.forEach(btn => {
 
 /* ─── CONTACT FORM ─── */
 
-emailjs.init({
-  publicKey: "QLusooCQLaY_tbI9D"
+// Init EmailJS only after the SDK is guaranteed to be loaded
+document.addEventListener("DOMContentLoaded", () => {
+  if (typeof emailjs !== "undefined") {
+    emailjs.init({ publicKey: "QLusooCQLaY_tbI9D" });
+  } else {
+    console.error("EmailJS SDK not loaded. Check the <script> tag in your HTML.");
+  }
 });
 
-/* ─── CONTACT FORM ─── */
+/* ─── CONTACT FORM SUBMIT ─── */
 async function handleContactSubmit(btn) {
+
+  // Guard: ensure EmailJS is available before trying to send
+  if (typeof emailjs === "undefined") {
+    btn.textContent = "❌ EMAIL SERVICE UNAVAILABLE";
+    setTimeout(() => { btn.textContent = "⚡ TRANSMIT MESSAGE"; }, 3000);
+    return;
+  }
 
   const name = document.getElementById("contactName")?.value.trim();
   const email = document.getElementById("contactEmail")?.value.trim();
@@ -434,7 +446,7 @@ async function handleContactSubmit(btn) {
     document.getElementById("endDate")?.value || "Not Specified";
 
   const durationSummary =
-    document.getElementById("durationSummary")?.textContent || "Not Specified";
+    document.getElementById("durationSummary")?.textContent?.trim() || "Not Specified";
 
   const message =
     document.getElementById("contactMsg")?.value.trim();
@@ -443,11 +455,7 @@ async function handleContactSubmit(btn) {
 
   if (!name || !email || !message) {
     btn.textContent = "⚠ FILL REQUIRED FIELDS";
-
-    setTimeout(() => {
-      btn.textContent = "⚡ TRANSMIT MESSAGE";
-    }, 2000);
-
+    setTimeout(() => { btn.textContent = "⚡ TRANSMIT MESSAGE"; }, 2000);
     return;
   }
 
@@ -455,11 +463,7 @@ async function handleContactSubmit(btn) {
 
   if (!emailRegex.test(email)) {
     btn.textContent = "⚠ INVALID EMAIL";
-
-    setTimeout(() => {
-      btn.textContent = "⚡ TRANSMIT MESSAGE";
-    }, 2000);
-
+    setTimeout(() => { btn.textContent = "⚡ TRANSMIT MESSAGE"; }, 2000);
     return;
   }
 
@@ -489,6 +493,8 @@ async function handleContactSubmit(btn) {
 
     /* ==========================
        AUTO REPLY EMAIL
+       Note: In your EmailJS dashboard, template_a6q01gc's
+       "To Email" field must be set to {{contactEmail}}
     ========================== */
 
     await emailjs.send(
@@ -499,6 +505,8 @@ async function handleContactSubmit(btn) {
         contactEmail: email,
         contactService: service,
         contactProjectName: projectName,
+        startDate: startDate,
+        endDate: endDate,
         durationSummary: durationSummary,
         contactMsg: message
       }
@@ -516,9 +524,10 @@ async function handleContactSubmit(btn) {
     document.getElementById("startDate").value = "";
     document.getElementById("endDate").value = "";
 
-    if (document.getElementById("durationSummary")) {
-      document.getElementById("durationSummary").innerHTML = "";
-      document.getElementById("durationSummary").style.display = "none";
+    const durationEl = document.getElementById("durationSummary");
+    if (durationEl) {
+      durationEl.innerHTML = "";
+      durationEl.style.display = "none";
     }
 
     setTimeout(() => {
@@ -528,12 +537,17 @@ async function handleContactSubmit(btn) {
 
   } catch (error) {
 
+    // Log the full error object — error.text has the EmailJS reason
     console.error("EmailJS Error:", error);
+    console.error("Error details:", error?.text || error?.message || JSON.stringify(error));
 
+    const reason = error?.text || error?.message || "Unknown error";
     btn.textContent = "❌ TRANSMISSION FAILED";
+    btn.title = reason; // Hover over button to see reason
 
     setTimeout(() => {
       btn.textContent = "⚡ TRANSMIT MESSAGE";
+      btn.title = "";
       btn.disabled = false;
     }, 3000);
   }
