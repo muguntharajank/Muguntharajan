@@ -100,7 +100,7 @@ if (orbitContainer) {
   /* ─── RESPONSIVE RADIUS ─── */
   function getOrbitRadii() {
     const w = window.innerWidth;
-    if (w <= 768) return { outer: 154, inner: 80 };
+    if (w <= 768) return { outer: 130, inner: 65 };
     if (w <= 1024) return { outer: 175, inner: 95 };
     return { outer: 210, inner: 115 };
   }
@@ -621,6 +621,76 @@ window.addEventListener("scroll", () => {
 
   progressBar.style.width = scrolled + "%";
 });
+
+/* ─── TYPEWRITER — ABOUT TITLE ─── */
+(function () {
+  const el = document.querySelector('.tw-role');
+  if (!el) return;
+
+  const roles = [
+    'Software Developer',
+    'Python Developer',
+    'ML Engineer',
+    'AI Developer',
+    'Web Developer',
+    'UI/UX Designer',
+    'Data Scientist',
+  ];
+
+  let roleIdx  = 0;
+  let charIdx  = 0;
+  let deleting = false;
+  const TYPE_SPEED   = 80;
+  const DELETE_SPEED = 40;
+  const PAUSE_AFTER  = 1800;
+  const PAUSE_EMPTY  = 400;
+
+  function tick() {
+    const current = roles[roleIdx];
+
+    if (deleting) {
+      charIdx--;
+      el.textContent = current.slice(0, charIdx);
+      if (charIdx === 0) {
+        deleting = false;
+        roleIdx  = (roleIdx + 1) % roles.length;
+        setTimeout(tick, PAUSE_EMPTY);
+        return;
+      }
+      setTimeout(tick, DELETE_SPEED);
+    } else {
+      charIdx++;
+      el.textContent = current.slice(0, charIdx);
+      if (charIdx === current.length) {
+        deleting = true;
+        setTimeout(tick, PAUSE_AFTER);
+        return;
+      }
+      setTimeout(tick, TYPE_SPEED);
+    }
+  }
+
+  // Fixed cursor span placed after .tw-role
+  const cursor = document.createElement('span');
+  cursor.className = 'tw-cursor';
+  cursor.textContent = '|';
+  el.insertAdjacentElement('afterend', cursor);
+
+  const s = document.createElement('style');
+  s.textContent = `
+    .tw-cursor {
+      display: inline-block;
+      margin-left: 2px;
+      color: var(--c1, #00dcff);
+      animation: tw-blink 0.75s step-end infinite;
+      font-weight: 400;
+    }
+    @keyframes tw-blink { 0%,100%{opacity:1} 50%{opacity:0} }
+  `;
+  document.head.appendChild(s);
+
+  tick();
+})();
 
 /* ─── CUSTOM CURSOR ─── */
 (function () {
