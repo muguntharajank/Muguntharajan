@@ -624,7 +624,7 @@ nav.nav-reference{
   width:500px;height:500px;
   transform:translate(-50%,-50%);
   pointer-events:none;
-  animation:orbit-slow 30s linear infinite;
+  animation:orbit-slow 20s linear infinite;
 }
 @keyframes orbit-slow{from{transform:translate(-50%,-50%) rotate(0)}to{transform:translate(-50%,-50%) rotate(360deg)}}
 .orbit-dot{
@@ -1062,11 +1062,12 @@ nav.nav-reference{
     }
 
     .about-subtitle{
-        font-size:2rem;
+        font-size:1.8rem;
+        margin-top:-20px;
     }
 
     .about-title{
-        font-size:1.3rem;
+        font-size:1.5rem;
     }
 
     .about-text p{
@@ -2505,12 +2506,11 @@ select:-webkit-autofill {
   #skills{ padding:80px 32px; }
   .skills-orbit-wrapper{ padding:40px 60px; }
   .skills-orbit{ width:440px; height:440px; }
-  .orbit-icon{ width:52px; height:52px; font-size:22px; }
+  .orbit-icon{ width:52px; height:52px; font-size:20px; }
   .orbit-label{ font-size:10px; }
   .orbit-center{ width:110px; height:110px; font-size:11px; }
   .skills-bars{ grid-template-columns:repeat(2,1fr); gap:14px; }
   .skill-bar-name{ font-size:14px; }
-
   /* TIMELINE ICON */
   .timeline{ padding-left:64px; }
   .tl-icon{ left:-48px; width:38px; height:38px; font-size:15px; }
@@ -2608,6 +2608,7 @@ select:-webkit-autofill {
     margin-bottom:52px; 
   }
   .skills-orbit-wrapper{ 
+    margin-top:60px;
     padding:30px 12px; 
     margin-bottom:80px; 
     overflow:hidden;
@@ -2619,23 +2620,23 @@ select:-webkit-autofill {
   }
   /* Scale down the inline-styled orbit-track rings on mobile */
   #skillsOrbit .orbit-track:nth-child(1){ 
-    width:276px !important; 
-    height:276px !important; 
+    width:230px !important; 
+    height:230px !important; 
   }
   #skillsOrbit .orbit-track:nth-child(2){ 
-    width:156px !important; 
-    height:156px !important; 
+    width:130px !important; 
+    height:130px !important; 
   }
   .orbit-center{ 
-    width:70px; 
-    height:70px; 
-    font-size:12px; 
-  }
-  .orbit-icon{ 
     width:60px; 
     height:60px; 
-    font-size:18px; 
-    border-radius:8px; 
+    font-size:10px; 
+  }
+  .orbit-icon{ 
+    width:40px; 
+    height:40px; 
+    font-size:15px; 
+    border-radius:7px; 
   }
   .orbit-label{ 
     font-size:8px; 
@@ -3359,24 +3360,25 @@ select:-webkit-autofill {
         inset 0 1px 0 rgba(255,255,255,0.9);
 }
 
-/* MOBILE ONLY HERO TITLE FIX */
 @media (max-width:768px){
 
-  /* Creative */
   .hero-big-title .hbt-line:first-child{
-      font-size: clamp(2.6rem, 7.2vw, 3.7rem);
+      font-size: clamp(2.4rem, 7vw, 3.5rem);
       line-height: 1.05;
+      display: block;
+      margin-bottom: 12px;
   }
 
-  /* Software Developer - KEEP LARGE */
   .hero-big-title .hbt-accent{
-      font-size: clamp(3rem, 8vw, 4rem);
-      line-height: 1.05;
-  }
-
-  /* ML Engineer */
-  .hero-big-title .hbt-line:last-child{
       font-size: clamp(2.6rem, 7.2vw, 3.7rem);
       line-height: 1.05;
+      display: block;
+      margin-bottom: 12px;
+  }
+
+  .hero-big-title .hbt-line:last-child{
+      font-size: clamp(2.4rem, 7vw, 3.5rem);
+      line-height: 1.05;
+      display: block;
   }
 }
