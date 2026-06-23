@@ -1062,12 +1062,12 @@ nav.nav-reference{
     }
 
     .about-subtitle{
-        font-size:1.8rem;
+        font-size:1.4rem;
         margin-top:-20px;
     }
 
     .about-title{
-        font-size:1.5rem;
+        font-size:1.18rem;
     }
 
     .about-text p{
@@ -2598,13 +2598,47 @@ select:-webkit-autofill {
   .holo-card{ width:220px; height:280px; }
 
   /* ABOUT — handled by dedicated breakpoints in about block above */
+  .about-btn-row{
+    display:flex;
+    width:100%;
+    gap:10px;
+  }
+
+  .about-btn{
+    flex:1;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    min-width:0;
+  }
   .section{ padding:70px 16px; }
 
   /* SKILLS */
   #skills{ 
     padding:80px 16px; 
   }
-  #skills .section-header{ 
+  .about-box .section-header p{
+    font-size:8px;
+  }
+  .about-text p{
+    text-align: justify;
+    line-height: 1.8;
+    letter-spacing: 0.2px;
+  }
+  .about-box .section-header{
+    text-align:center;
+    margin-bottom:30px;
+  }
+  .about-text,
+  .about-subtitle{
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    opacity: 1 !important;
+  }
+
+  #skills .section-header { 
     margin-bottom:52px; 
   }
   .skills-orbit-wrapper{ 
@@ -3301,10 +3335,11 @@ select:-webkit-autofill {
   }
 
   .hero-big-sub{
-    font-size: 0.95rem;
-    line-height: 1.7;
-    max-width: 380px;
-    margin: 18px auto 0;
+    font-size: 0.92rem;
+    line-height: 1.8;
+    max-width: 100%;
+    margin: 16px auto 0;
+    padding: 0 8px;
     text-align: center;
     font-weight: 400;
   }
@@ -3363,22 +3398,47 @@ select:-webkit-autofill {
 @media (max-width:768px){
 
   .hero-big-title .hbt-line:first-child{
-      font-size: clamp(2.4rem, 7vw, 3.5rem);
+      font-size: clamp(2.1rem, 6.1vw, 3.1rem);
       line-height: 1.05;
       display: block;
       margin-bottom: 12px;
   }
 
   .hero-big-title .hbt-accent{
-      font-size: clamp(2.6rem, 7.2vw, 3.7rem);
+      font-size: clamp(2.1rem, 6.8vw, 3.1rem);
       line-height: 1.05;
       display: block;
       margin-bottom: 12px;
   }
 
   .hero-big-title .hbt-line:last-child{
-      font-size: clamp(2.4rem, 7vw, 3.5rem);
+      font-size: clamp(2.1rem, 6.1vw, 3.1rem);
       line-height: 1.05;
       display: block;
+  }
+  .duration-grid{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+
+  .duration-arrow{
+    display:none;
+  }
+
+  .duration-field{
+    width:100%;
+  }
+
+  .date-label{
+    display:block;
+    font-size:0.85rem;
+    font-weight:600;
+    margin-bottom:6px;
+    color:var(--accent-color);
+  }
+
+  .date-input{
+    width:100%;
   }
 }
