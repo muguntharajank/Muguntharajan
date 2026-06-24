@@ -478,7 +478,7 @@ async function handleContactSubmit(btn) {
 
     /* ─── SEND OWNER EMAIL (critical — must succeed) ─── */
     const ownerResult = await emailjs.send(
-      "service_d7yl2oi",
+      "service_c7s67to",
       "template_iy537ld",
       templateParams
     );
@@ -502,7 +502,7 @@ async function handleContactSubmit(btn) {
   /* ─── SEND AUTO-REPLY TO APPLICANT ─── */
   try {
     await emailjs.send(
-      "service_d7yl2oi",
+      "service_c7s67to",
       "template_a6q01gc",
       {
         to_email:            email,   // REQUIRED: tells EmailJS where to send
